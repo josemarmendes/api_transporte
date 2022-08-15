@@ -52,4 +52,9 @@ public class MotoristaAPI {
 
         return motoristaRepository.save(motoristaSalvo);
     }
+
+    @DeleteMapping("motoristas/{id}")
+    public void excluirMotorista(@PathVariable("id") Long id){
+        motoristaRepository.delete(buscarPorId(id));
+    }
 }
