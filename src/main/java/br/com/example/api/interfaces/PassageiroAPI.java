@@ -2,6 +2,7 @@ package br.com.example.api.interfaces;
 
 import br.com.example.api.domain.Passageiro;
 import br.com.example.api.domain.PassageiroRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import java.util.Optional;
 @RequestMapping( path = "/passageiros", produces = MediaType.APPLICATION_JSON_VALUE)
 public class PassageiroAPI {
 
+    @Autowired
     private PassageiroRepository passageiroRepository;
 
     @GetMapping
