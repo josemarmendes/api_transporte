@@ -16,6 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class PedidoViagemMapper {
     @Autowired
@@ -58,4 +61,12 @@ public class PedidoViagemMapper {
 
         return model;
     }
+
+    public List<EntityModel<PedidoViagemOutput>> construirObjetoDeSaida(List<PedidoViagem> pedidoViagemList){
+        return pedidoViagemList
+                .stream()
+                .map(pedidoViagem -> construirObjetoDeSaida(pedidoViagem, map(pedidoViagem)))
+                .collect(Collectors.toList());
+    }
+
 }
